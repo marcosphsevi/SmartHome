@@ -1,0 +1,220 @@
+:root {
+    --color-cian: #3c6e71;
+    --color-gris: #D9D9D9;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-orange: #F3C01B;
+    --color-blue: #0084DF;
+    --color-dark-blue: #0BFFE3;
+
+    --color-azul-oscuro: #284B63;
+    --color-azul-noche: #1B3241;
+
+    --foto-bombilla-claro: url('resources/bombilla.png');
+    --foto-bombilla-oscuro: url('resources/bombillaOscuro.png');
+
+    --foto-camara-claro: url('resources/camara.png');
+    --foto-camara-oscuro: url('resources/camaraOscuro.png');
+
+    --foto-garage-claro: url('resources/garage.png');
+    --foto-garage-oscuro: url('resources/garageOscuro.png');
+
+    --foto-notificaciones-claro: url('resources/notificacion.png');
+    --foto-notificaciones-oscuro: url('resources/notificacionOscuro.png');
+
+    --foto-inicio-sesion-claro: url('resources/LogoInicioSesion.png');
+    --foto-inicio-sesion-oscuro: url('resources/LogoInicioSesionOscuro.png');
+
+    --foto-claro: url('resources/sol.png');
+    --foto-oscuro: url('resources/luna.png');
+
+}
+
+:root {
+    --color-header-footer: var(--color-cian);
+    --color-fondo: var(--color-gris);
+    --color-caja: var(--color-white);
+    --color-texto: var(--color-black);
+    --color-texto-footer-header: var(--color-white);
+    --foto-bombilla: var(--foto-bombilla-claro);
+    --foto-camara: var(--foto-camara-claro);
+    --foto-garage: var(--foto-garage-claro);
+    --foto-notificacion: var(--foto-notificaciones-claro);
+    --foto-inicio-sesion: var(--foto-inicio-sesion-claro);
+    --foto-tema: var(--foto-claro);
+    --color-calefaccion: var(--color-blue);
+}
+
+body:has(#tema:checked) {
+    --color-header-footer: var(--color-azul-noche);
+    --color-fondo: var(--color-azul-oscuro);
+    --color-caja: var(--color-cian);
+    --color-texto: var(--color-white);
+    --foto-bombilla: var(--foto-bombilla-oscuro);
+    --foto-camara: var(--foto-camara-oscuro);
+    --foto-garage: var(--foto-garage-oscuro);
+    --foto-notificacion: var(--foto-notificaciones-oscuro);
+    --foto-inicio-sesion: var(--foto-inicio-sesion-oscuro);
+    --foto-tema: var(--foto-oscuro);
+    --color-calefaccion: var(--color-dark-blue);
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgb(from var(--color-fondo) r g b / 0.7),
+            rgb(from var(--color-fondo) r g b / 0.9)), url('resources/casa.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+
+}
+
+/*HEADER*/
+
+.user {
+    height: 4.5em;
+    width: 4.5em;
+    object-fit: contain;
+    display: inline-block;
+}
+
+#usuario {
+    content: var(--foto-inicio-sesion);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 0.6rem;
+    background-color: var(--color-header-footer);
+    color: var(--color-texto-footer-header);
+    transition: background-color 0.5s ease;
+
+}
+
+#headerContenedor {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 1% 2%;
+    align-items: center;
+}
+
+/*FOOTER*/
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 0.6rem;
+    background-color: var(--color-header-footer);
+    color: var(--color-texto-footer-header);
+    transition: background-color 0.5s ease;
+
+}
+
+#footerContenedor {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1% 2%;
+    gap: 2rem;
+}
+
+#claroOscuro {
+    content: var(--foto-tema);
+}
+
+/*CAJAS*/
+
+#Principal {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40vw, 1fr));
+    gap: 1rem;
+    width: 90vw;
+    align-items: stretch;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.caja {
+    background-color: var(--color-caja);
+    color: var(--color-texto);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.5s ease, color 0.5s ease;
+
+}
+
+#bombilla {
+    content: var(--foto-bombilla);
+}
+
+#camara {
+    content: var(--foto-camara);
+}
+
+#garage {
+    content: var(--foto-garage);
+}
+
+#notificacion {
+    content: var(--foto-notificacion);
+}
+
+.caja:hover {
+    transform: translateY(-0.15rem);
+    box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.cajaImagen {
+    height: auto;
+    width: 40%;
+    max-width: 4.5em;
+}
+
+.caja h2 {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+}
+
+.caja p {
+    font-size: 2rem;
+}
+
+#temperaturaExt {
+    font-weight: bold;
+    color: var(--color-orange);
+}
+
+#calefaccion {
+    font-weight: bold;
+    color: var(--color-calefaccion);
+}
+
+@media (min-width: 64rem) {
+    #Principal {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(2, 30vh);
+        gap: 2rem;
+    }
+}
