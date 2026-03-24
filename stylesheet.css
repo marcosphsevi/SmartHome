@@ -201,7 +201,7 @@ footer {
     font-size: 2rem;
 }
 
-#temperaturaExt {
+#consumo {
     font-weight: bold;
     color: var(--color-orange);
 }
